@@ -1,4 +1,4 @@
-area_type,availability,location,size(BHK),society,total_sqft,bath,balcony,price (Lakhs)
+area_type,availability,location,size(BHK),society,total_sqft,bath,balcony,price(Lakhs)
 Built-up Area,In 1 Year,T. Nagar,4,DLF Garden City,1020,4,1,80.43
 Super built-up Area,Immediate Possession,Chromepet,1,Casagrand Elysium,1018,1,2,49.57
 Built-up Area,In 6 Months,Adyar,3,DLF Garden City,2825,3,1,144.44
