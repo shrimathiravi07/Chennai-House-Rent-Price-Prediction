@@ -1,11 +1,20 @@
+## templates/index.html
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rent Price Predictor</title>
 </head>
 <body>
-    
+    <h2>Enter House Details</h2>
+    <form method="POST">
+        Location: <input type="text" name="location" required><br>
+        Area Type: <input type="text" name="area_type" required><br>
+        Size (BHK): <input type="number" name="size" required><br>
+        Total Sqft: <input type="number" name="total_sqft" required><br>
+        Bath: <input type="number" name="bath" required><br>
+        Balcony: <input type="number" name="balcony" required><br>
+        Availability: <input type="text" name="availability" required><br>
+        <input type="submit" value="Predict Rent">
+    </form>
 </body>
 </html>
