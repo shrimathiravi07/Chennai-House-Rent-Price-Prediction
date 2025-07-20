@@ -1,20 +1,40 @@
-## templates/index.html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Rent Price Predictor</title>
-</head>
+{% extends 'head.html' %} 
+{% block content %}
 <body>
-    <h2>Enter House Details</h2>
-    <form method="POST">
-        Location: <input type="text" name="location" required><br>
-        Area Type: <input type="text" name="area_type" required><br>
-        Size (BHK): <input type="number" name="size" required><br>
-        Total Sqft: <input type="number" name="total_sqft" required><br>
-        Bath: <input type="number" name="bath" required><br>
-        Balcony: <input type="number" name="balcony" required><br>
-        Availability: <input type="text" name="availability" required><br>
-        <input type="submit" value="Predict Rent">
+   
+<div class="container">
+    <h2>Chennai House Rent Price Prediction</h2>
+    <form action="/predict" method="post">
+        <label>Area Type:</label>
+        <input type="text" name="area_type" required>
+
+        <label>Availability:</label>
+        <input type="text" name="availability" required>
+
+        <label>Location:</label>
+        <input type="text" name="location" required>
+
+        <label>Size (BHK):</label>
+        <input type="number" name="size" required>
+
+        <label>Total Sqft:</label>
+        <input type="number" step="any" name="total_sqft" required>
+
+        <label>Bathroom Count:</label>
+        <input type="number" name="bath" required>
+
+        <label>Balcony Count:</label>
+        <input type="number" name="balcony" required>
+
+        <button type="submit">Predict</button>
     </form>
+
+    {% if predicted_price %}
+    <div class="result">
+        <p>Predicted Rent Price: ₹{{ predicted_price }} lakhs</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
 </body>
 </html>

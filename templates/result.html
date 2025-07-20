@@ -1,11 +1,11 @@
-## templates/result.html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Prediction Result</title>
-</head>
+{% extends 'head.html'%}
+   {% block title %} <title>Prediction Result</title>{% endblock %}
+
+{% block content %}
 <body>
-    <h2>Predicted Rent Price: ₹{{ prediction }}</h2>
+    <h2>Predicted Rent Price:</h2>
+    <p>{{ price }} Lakhs</p> <!-- this must match the variable passed from app.py -->
     <a href="/">Predict Again</a>
 </body>
+{% endblock %}
 </html>
