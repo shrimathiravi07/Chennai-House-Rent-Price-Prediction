@@ -1,11 +1,22 @@
 {% extends 'head.html'%}
-   {% block title %} <title>Prediction Result</title>{% endblock %}
+{% block title %} <title>Prediction Result</title>{% endblock %}
 
 {% block content %}
-<body>
-    <h2>Predicted Rent Price:</h2>
-    <p>{{ price }} Lakhs</p> <!-- this must match the variable passed from app.py -->
-    <a href="/">Predict Again</a>
-</body>
+<style>
+
+</style>
+
+<div class="navbar">
+  <div class="logo">Chennai_House_Prediction</div>
+  <a href="/about" class="contact-btn">About Us</a>
+</div>
+
+<div class="result-container">
+  <div class="result-card">
+    <h1>Predicted Rent Price</h1>
+    <p>The estimated monthly rent for your selected property is:</p>
+    <h1 style="font-size: 36px; color: #d32f2f;">₹{{ price }} Lakhs</h1>
+    <a href="/">Predict Another</a>
+  </div>
+</div>
 {% endblock %}
-</html>
