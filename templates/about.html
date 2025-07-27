@@ -1,2 +1,104 @@
-<h1>this is about page
-</h1>
+{% extends 'head.html' %}
+{% block content %}
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f6fa;
+    padding: 20px 30px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2e7d32;
+  }
+
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar ul li {
+    position: relative;
+  }
+
+  .navbar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+  }
+
+  .navbar .contact-btn {
+    background-color: #000;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .about-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 60px;
+    background-color: #fff;
+    color: #333;
+  }
+
+  .about-text {
+    flex: 1;
+    padding-right: 40px;
+  }
+
+  .about-text h2 {
+    color: #2e7d32;
+    margin-bottom: 20px;
+  }
+
+  .about-text p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .about-image {
+    flex: 1;
+  }
+
+  .about-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+</style>
+
+<div class="navbar">
+  <div class="logo">Chennai_House_Prediction</div>
+ 
+  <a href="#" class="contact-btn">About Us</a>
+</div>
+
+<div class="about-section">
+  <div class="about-text">
+    <h2>About This Project</h2>
+    <p>This web application provides a predictive analysis tool for estimating rental prices in Chennai based on key property attributes like area type, availability, location, size, and amenities. Designed with a user-friendly interface, it leverages machine learning to generate accurate rent estimates and offers a visual insight into prominent city areas. The platform aims to assist tenants and real estate analysts in making informed decisions.</p>
+  </div>
+  <div class="about-image">
+    <img src="{{ url_for('static', filename='img/chennai-map-slide1.png') }}" alt="About Project">
+  </div>
+</div>
+ <center><a href="/#" class="contact-btn">Home</a></center>
+{% endblock %}
