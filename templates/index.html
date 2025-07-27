@@ -1,40 +1,240 @@
-{% extends 'head.html' %} 
+{% extends 'head.html' %}
 {% block content %}
-<body>
-   
-<div class="container">
-    <h2>Chennai House Rent Price Prediction</h2>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #000;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f6fa;
+    padding: 20px 30px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2e7d32;
+  }
+
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar ul li {
+    position: relative;
+  }
+
+  .navbar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+  }
+
+  .navbar .contact-btn {
+    background-color: #000;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .hero {
+    background-image: url("{{ url_for('static', filename='img/maa.png') }}");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    filter: blur(3px);
+  }
+
+  .content-area {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 120px;
+    left: 60px;
+    right: 60px;
+    z-index: 2;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .slider-box {
+    width: 25cm;
+    height: 15cm;
+    overflow: hidden;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(3px);
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    position: relative;
+  }
+
+  .slider-box .slide {
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+
+  .slider-box .slide.active {
+    display: block;
+  }
+
+  .slider-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 0;
+    margin-bottom: 0;
+  }
+
+  .slider-box p {
+    font-size: 16px;
+    line-height: 1.4;
+    text-align: center;
+    background: rgba(0,0,0,0.5);
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+  }
+
+  .form-overlay {
+    width: 350px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    align-self: center;
+  }
+
+  .form-overlay:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 25px rgba(0,0,0,0.3);
+  }
+
+  .form-overlay h2 {
+    color: #2e7d32;
+    margin-bottom: 20px;
+  }
+
+  .form-overlay form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-overlay label {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  .form-overlay input,
+  .form-overlay button {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .form-overlay button {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+
+  .form-overlay .result {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #388e3c;
+  }
+</style>
+
+<div class="navbar">
+  <div class="logo">Chennai_House_Prediction</div>
+  <a href="#" class="contact-btn">About Us</a>
+</div>
+
+<div class="hero"></div>
+
+<div class="content-area">
+  <div class="slider-box">
+    <div class="slide active">
+      <img src="{{ url_for('static', filename='img/a.jpg') }}" alt="Anna Nagar">
+      <p>Anna Nagar is a prime residential area in Chennai, known for its planning and connectivity.</p>
+    </div>
+    <div class="slide">
+      <img src="{{ url_for('static', filename='img/e.jpg') }}" alt="T Nagar">
+      <p>Alwarpet is a posh residential locality in Chennai, known for its upscale homes, quiet streets, and central location..</p>
+    </div>
+    <div class="slide">
+      <img src="{{ url_for('static', filename='img/g.jpg') }}" alt="Velachery">
+      <p>Velachery is a growing suburb popular for IT employees due to its proximity to tech parks.</p>
+    </div>
+  </div>
+
+  <div class="form-overlay">
+    <h2>Check Rent Estimate</h2>
     <form action="/predict" method="post">
-        <label>Area Type:</label>
-        <input type="text" name="area_type" required>
+      <label>Area Type:</label>
+      <input type="text" name="area_type" required>
 
-        <label>Availability:</label>
-        <input type="text" name="availability" required>
+      <label>Availability:</label>
+      <input type="text" name="availability" required>
 
-        <label>Location:</label>
-        <input type="text" name="location" required>
+      <label>Location:</label>
+      <input type="text" name="location" required>
 
-        <label>Size (BHK):</label>
-        <input type="number" name="size" required>
+      <label>Size (BHK):</label>
+      <input type="number" name="size" required>
 
-        <label>Total Sqft:</label>
-        <input type="number" step="any" name="total_sqft" required>
+      <label>Total Sqft:</label>
+      <input type="number" step="any" name="total_sqft" required>
 
-        <label>Bathroom Count:</label>
-        <input type="number" name="bath" required>
+      <label>Bathroom Count:</label>
+      <input type="number" name="bath" required>
 
-        <label>Balcony Count:</label>
-        <input type="number" name="balcony" required>
+      <label>Balcony Count:</label>
+      <input type="number" name="balcony" required>
 
-        <button type="submit">Predict</button>
+      <button type="submit">Predict</button>
     </form>
 
     {% if predicted_price %}
     <div class="result">
-        <p>Predicted Rent Price: ₹{{ predicted_price }} lakhs</p>
+      Predicted Rent Price: ₹{{ predicted_price }} lakhs
     </div>
     {% endif %}
+  </div>
 </div>
+
+<script>
+  const slides = document.querySelectorAll(".slider-box .slide");
+  let currentSlide = 0;
+
+  setInterval(() => {
+    slides[currentSlide].classList.remove("active");
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add("active");
+  }, 5000);
+</script>
+
 {% endblock %}
-</body>
-</html>
