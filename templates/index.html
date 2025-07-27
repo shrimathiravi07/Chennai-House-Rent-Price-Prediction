@@ -4,7 +4,7 @@
   body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #000;
+   
   }
 
   .navbar {
@@ -56,7 +56,7 @@
     background-position: center;
     height: 100vh;
     position: relative;
-    filter: blur(3px);
+    filter: blur(2px);
   }
 
   .content-area {
@@ -72,13 +72,13 @@
   }
 
   .slider-box {
-    width: 25cm;
-    height: 15cm;
+    width: 26cm;
+    height: 16cm;
     overflow: hidden;
-    border-radius: 5px;
+    border-radius: 10px;
     background: rgba(255,255,255,0.2);
     backdrop-filter: blur(3px);
-    padding: 0;
+    padding: 10px;
     box-sizing: border-box;
     color: white;
     position: relative;
@@ -97,21 +97,15 @@
   .slider-box img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    border-radius: 0;
-    margin-bottom: 0;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
   }
 
   .slider-box p {
     font-size: 16px;
     line-height: 1.4;
     text-align: center;
-    background: rgba(0,0,0,0.5);
-    padding: 10px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    margin: 0;
   }
 
   .form-overlay {
@@ -145,6 +139,7 @@
     margin-top: 10px;
   }
 
+  .form-overlay select,
   .form-overlay input,
   .form-overlay button {
     padding: 10px;
@@ -170,7 +165,7 @@
 
 <div class="navbar">
   <div class="logo">Chennai_House_Prediction</div>
-  <a href="#" class="contact-btn">About Us</a>
+  <a href="/about" class="contact-btn">About Us</a>
 </div>
 
 <div class="hero"></div>
@@ -178,16 +173,16 @@
 <div class="content-area">
   <div class="slider-box">
     <div class="slide active">
-      <img src="{{ url_for('static', filename='img/a.jpg') }}" alt="Anna Nagar">
+      <img src="{{ url_for('static', filename='img/d.jpg') }}" alt="Anna Nagar">
       <p>Anna Nagar is a prime residential area in Chennai, known for its planning and connectivity.</p>
     </div>
     <div class="slide">
-      <img src="{{ url_for('static', filename='img/e.jpg') }}" alt="T Nagar">
-      <p>Alwarpet is a posh residential locality in Chennai, known for its upscale homes, quiet streets, and central location..</p>
+      <img src="{{ url_for('static', filename='/img/g.jpg') }}" alt="Velachery">
+      <p>Velachery is a growing suburb popular for IT employees due to its proximity to tech parks.</p>
     </div>
     <div class="slide">
-      <img src="{{ url_for('static', filename='img/g.jpg') }}" alt="Velachery">
-      <p>Velachery is a growing suburb popular for IT employees due to its proximity to tech parks.</p>
+      <img src="{{ url_for('static', filename='/img/e.jpg') }}" alt="Alwarpet">
+      <p>Alwarpet is a posh residential locality in Chennai, known for its upscale homes and central location.</p>
     </div>
   </div>
 
@@ -195,13 +190,31 @@
     <h2>Check Rent Estimate</h2>
     <form action="/predict" method="post">
       <label>Area Type:</label>
-      <input type="text" name="area_type" required>
+      <select name="area_type" required>
+        <option value="0">None</option>
+        <option value="Super built-up Area">Super built-up Area</option>
+        <option value="Built-up Area">Built-up Area</option>
+        <option value="Plot Area">Plot Area</option>
+        <option value="Carpet Area">Carpet Area</option>
+      </select>
 
       <label>Availability:</label>
-      <input type="text" name="availability" required>
+      <select name="availability" required>
+        <option value="0">None</option>
+        <option value="Ready To Move">Ready To Move</option>
+        <option value="18-Dec">18-Dec</option>
+        <option value="20-Dec">20-Dec</option>
+        <option value="21-Dec">21-Dec</option>
+      </select>
 
       <label>Location:</label>
-      <input type="text" name="location" required>
+      <select name="location" required>
+        <option value="0">None</option>
+        <option value="Anna Nagar">Anna Nagar</option>
+        <option value="T Nagar">T Nagar</option>
+        <option value="Velachery">Velachery</option>
+        <option value="Alwarpet">Alwarpet</option>
+      </select>
 
       <label>Size (BHK):</label>
       <input type="number" name="size" required>
