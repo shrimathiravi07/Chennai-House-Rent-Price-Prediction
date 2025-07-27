@@ -17,6 +17,10 @@ preprocessor = pickle.load(open(preprocessor_path, 'rb'))
 def index():
     return render_template('index.html')
 
+@app.route('/about')
+def about ():
+    return render_template('about.html')
+
 @app.route('/predict', methods=['POST'])
 def predict():
     input_data = {
