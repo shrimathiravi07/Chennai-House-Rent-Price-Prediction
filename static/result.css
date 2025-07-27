@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f6fa;
+    padding: 20px 30px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+
+  .navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2e7d32;
+  }
+
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar ul li {
+    position: relative;
+  }
+
+  .navbar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+  }
+
+  .navbar .contact-btn {
+    background-color: #000;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+
+ .contact-btn {
+    background-color: #000;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+  }
+
+  .result-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #2e7d32;
+    color: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+
+  .result-navbar .logo {
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  .result-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px);
+    text-align: center;
+    padding: 20px;
+  }
+
+  .result-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 40px 60px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    max-width: 600px;
+  }
+
+  .result-card h1 {
+    color: #2e7d32;
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .result-card p {
+    font-size: 20px;
+    color: #444;
+    margin-bottom: 30px;
+  }
+
+  .result-card a {
+    background-color: #2e7d32;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+  }

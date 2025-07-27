@@ -46,15 +46,7 @@
     font-weight: bold;
   }
 
-  .hero {
-    background-image: url("{{ url_for('static', filename='img/maa.png') }}");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    position: relative;
-    filter: blur(2px);
-  }
+ 
  .contact-btn {
     background-color: #000;
     color: white;
